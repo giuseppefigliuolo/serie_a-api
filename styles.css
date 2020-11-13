@@ -1,0 +1,174 @@
+@font-face {
+  font-family: "MonumentExtended";
+  src: url("./fonts/MonumentExtended-Regular.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MonumentExtended";
+  src: url("./fonts/MonumentExtended-Light.otf") format("truetype");
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MonumentExtended";
+  src: url("./fonts/MonumentExtended-Bold.otf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  padding: 5rem 0;
+  font-family: "MonumentExtended", sans-serif;
+  background: url(https://media.giphy.com/media/pk9entZz8X1F6/giphy.gif)
+    no-repeat 50% 50%;
+  background-size: cover;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 4.5rem;
+  padding-left: 1rem;
+  color: white;
+}
+
+.menu__item {
+  position: relative;
+  padding: 0 6vw;
+}
+
+.menu__item-link {
+  display: block;
+  position: relative;
+  -webkit-text-stroke: 1.5px #ffff;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  transition: opacity 0.4s;
+}
+
+.inner-cursor {
+  position: fixed;
+  left: 10px;
+  width: 10px;
+  height: 10px;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  mix-blend-mode: difference;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: width 0.5s, height 0.5s;
+}
+
+.inner-cursor.grow {
+  width: 25px;
+  height: 25px;
+  transition: width 0.5s, height 0.5s;
+}
+
+.outer-cursor {
+  position: fixed;
+  left: 10px;
+  width: 25px;
+  height: 25px;
+  transform: translate(-50%, -50%);
+  border: 1px solid #fff;
+  mix-blend-mode: difference;
+  border-radius: 50%;
+  transition: 0.1s;
+}
+
+.menu__item-link::before {
+  /* Reset all css properties */
+  all: initial;
+  /* font-family: sofia-pro, sans-serif; */
+  counter-increment: menu;
+  position: absolute;
+  bottom: 60%;
+  left: 0;
+  /* No cursor pointer */
+  pointer-events: none;
+}
+
+.menu__item-link_disappear {
+  transition-duration: 0.1s;
+  opacity: 0;
+}
+
+.menu__item-img {
+  pointer-events: none;
+  position: absolute;
+  height: 50vh;
+  max-height: 400px;
+  opacity: 0;
+  left: 100%;
+  top: 50%;
+  transform: translate3d(calc(-100% - 6vw), -30%, 0) translate3d(0, 20px, 0);
+}
+.menu__item-link:hover + .menu__item-img {
+  opacity: 1;
+  transform: translate3d(calc(-100% - 6vw), -30%, 0) rotate3d(0, 0, 1, 4deg);
+  transition: all 0.4s;
+}
+.menu {
+  padding: 10vh 0 25vh;
+  --offset: 20vw;
+  --move-initial: calc(-25% + var(--offset));
+  --move-final: calc(-50% + var(--offset));
+  font-size: 7vw;
+}
+.marquee {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  color: #fff;
+  pointer-events: none;
+  /* Inverte il colore con il background */
+  mix-blend-mode: difference;
+}
+.marquee__inner {
+  width: fit-content;
+  display: flex;
+  position: relative;
+  animation: marquee 5s linear infinite;
+  animation-play-state: paused;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.menu__item-link:hover ~ .marquee .marquee__inner {
+  animation-play-state: running;
+  opacity: 1;
+  transition-duration: 0.4s;
+}
+.menu__item-link,
+.marquee span {
+  white-space: nowrap;
+  font-size: 7vw;
+  padding: 0 1vw;
+  font-weight: 900;
+  line-height: 1.15;
+}
+.marquee span {
+  font-style: italic;
+}
+@keyframes marquee {
+  0% {
+    transform: translate3d(var(--move-initial), 0, 0);
+  }
+  100% {
+    transform: translate3d(var(--move-final), 0, 0);
+  }
+}
