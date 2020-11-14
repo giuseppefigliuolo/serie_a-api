@@ -45,6 +45,7 @@ h1 {
 }
 
 .menu__item {
+  mix-blend-mode: difference;
   width: fit-content;
   z-index: 3;
   position: relative;
@@ -144,6 +145,7 @@ h1 {
 }
 .marquee {
   position: absolute;
+  z-index: 2;
   top: 0;
   left: 0;
   overflow: hidden;
