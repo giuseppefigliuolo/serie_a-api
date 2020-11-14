@@ -45,6 +45,8 @@ h1 {
 }
 
 .menu__item {
+  width: fit-content;
+  z-index: 3;
   position: relative;
   padding: 0 6vw;
 }
@@ -104,6 +106,17 @@ h1 {
 .menu__item-link:hover {
   transition-duration: 0.1s;
   opacity: 0;
+}
+
+.img__container {
+  z-index: 1;
+  width: 640px;
+  position: absolute;
+  height: 50vh;
+  max-height: 400px;
+  left: 100%;
+  top: 50%;
+  transform: translate3d(calc(-100% - 6vw), -30%, 0) translate3d(0, 20px, 0);
 }
 
 .menu__item-img {

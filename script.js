@@ -30,6 +30,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  const liquidTransition = () => {
+    new hoverEffect({
+      parent: document.querySelector(".img__container"),
+      intensity: 0.2,
+      image1: "./img/Rimini.jpg",
+      image2: "./img/Modena.jpg",
+      /* image3: "./img/Parma.jpg",
+        image4: "./img/Dozza.jpg",*/
+      displacementImage: "./img/heightMap.png",
+    });
+  };
+
   //   cursorAnimation();
   itemsHoverHandler();
+  liquidTransition();
 });
