@@ -32,7 +32,7 @@ html {
 body {
   padding: 5rem 0;
   font-family: "MonumentExtended", sans-serif;
-  background: url(https://media.giphy.com/media/pk9entZz8X1F6/giphy.gif)
+  background: url(https://media.giphy.com/media/14w5wo8wy3DbJS/giphy.gif)
     no-repeat 50% 50%;
   background-size: cover;
   height: 100vh;
@@ -109,6 +109,10 @@ h1 {
   opacity: 0;
 }
 
+canvas {
+  transform: rotate(5deg);
+}
+
 .img__container {
   z-index: 1;
   width: 640px;
@@ -116,8 +120,14 @@ h1 {
   height: 50vh;
   max-height: 400px;
   left: 100%;
-  top: 50%;
+  top: 45%;
   transform: translate3d(calc(-100% - 6vw), -30%, 0) translate3d(0, 20px, 0);
+}
+
+.img__container:after {
+}
+
+.img__container canvas {
 }
 
 .menu__item-img {
