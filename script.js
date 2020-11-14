@@ -16,17 +16,20 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const itemsHoverHandler = () => {
-    const items = document.querySelectorAll(".menu__item");
+    const items = document.querySelectorAll(".menu__item-link");
+    const img = document.querySelector(".menu__item-img");
     items.forEach((el) => {
-      el.addEventListener("mouseenter", (evt) => {
-        evt.target
-          .querySelector(".menu__item-link")
-          .classList.toggle("menu__item-link_disappear");
+      //ENTER
+      el.addEventListener("mouseover", (evt) => {
+        img.src = `./img/${evt.target.innerHTML}.jpg
+        `;
+        img.classList.add("show_img");
       });
-      el.addEventListener("mouseleave", () => console.log("via"));
+      //OUT
+      el.addEventListener("mouseout", (evt) => {});
     });
   };
 
-  cursorAnimation();
+  //   cursorAnimation();
   itemsHoverHandler();
 });

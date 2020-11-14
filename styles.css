@@ -101,7 +101,7 @@ h1 {
   pointer-events: none;
 }
 
-.menu__item-link_disappear {
+.menu__item-link:hover {
   transition-duration: 0.1s;
   opacity: 0;
 }
@@ -109,6 +109,7 @@ h1 {
 .menu__item-img {
   pointer-events: none;
   position: absolute;
+  z-index: -1;
   height: 50vh;
   max-height: 400px;
   opacity: 0;
@@ -116,7 +117,7 @@ h1 {
   top: 50%;
   transform: translate3d(calc(-100% - 6vw), -30%, 0) translate3d(0, 20px, 0);
 }
-.menu__item-link:hover + .menu__item-img {
+.show_img {
   opacity: 1;
   transform: translate3d(calc(-100% - 6vw), -30%, 0) rotate3d(0, 0, 1, 4deg);
   transition: all 0.4s;
@@ -155,6 +156,8 @@ h1 {
 }
 .menu__item-link,
 .marquee span {
+  mix-blend-mode: difference;
+  width: fit-content;
   white-space: nowrap;
   font-size: 7vw;
   padding: 0 1vw;
