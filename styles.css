@@ -44,6 +44,35 @@ h1 {
   color: white;
 }
 
+.comingsoon {
+  transform: rotate(27deg);
+  position: absolute;
+  top: 6%;
+  right: -22%;
+  padding: 1.2rem 23rem;
+  overflow: hidden;
+  border: 2px solid white;
+}
+
+.comingsoon p {
+  mix-blend-mode: multiply;
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  -webkit-text-stroke: 1.5px #ffff;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.countdown {
+  position: absolute;
+  bottom: 30px;
+  right: 10px;
+  z-index: -1;
+  color: white;
+  font-size: 2rem;
+  font-family: "Source Code Pro", monospace;
+}
+
 .menu__item {
   mix-blend-mode: difference;
   width: fit-content;
@@ -124,12 +153,6 @@ canvas {
   transform: translate3d(calc(-100% - 6vw), -30%, 0) translate3d(0, 20px, 0);
 }
 
-.img__container:after {
-}
-
-.img__container canvas {
-}
-
 .menu__item-img {
   pointer-events: none;
   position: absolute;
@@ -198,5 +221,16 @@ canvas {
   }
   100% {
     transform: translate3d(var(--move-final), 0, 0);
+  }
+}
+
+@media (min-width: 1000) {
+  body {
+    background-color: #fff;
+  }
+  .comingsoon {
+    background-color: red;
+    top: 6vw;
+    right: -27vw;
   }
 }

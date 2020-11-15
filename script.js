@@ -30,19 +30,40 @@ document.addEventListener("DOMContentLoaded", () => {
     const items = document.querySelectorAll(".menu__item-link");
     const img = document.querySelector(".menu__item-img");
     items.forEach((el) => {
-      //ENTER
       el.addEventListener("mouseover", (evt) => {
         document.querySelector(".img__container").innerHTML = "";
         liquidTransition(evt.target.innerHTML);
-        // img.src = `./img/${evt.target.innerHTML}.jpg
-        // `;
-        // img.classList.add("show_img");
       });
-      //OUT
       el.addEventListener("mouseout", (evt) => {});
     });
   };
 
+  const countdown = () => {
+    const countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
+
+    // Update the count down every 1 second
+    const x = setInterval(() => {
+      const now = new Date().getTime();
+
+      const distance = countDownDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // If the count down is finished, write some text
+      if (distance < 0) {
+        clearInterval(x);
+      }
+      const wholeDate = `- ${days}d. ${hours}h:${minutes}m:${seconds}s`;
+      document.querySelector(".countdown").innerHTML = wholeDate;
+    }, 1000);
+  };
+
   //   cursorAnimation();
   itemsHoverHandler();
+  countdown();
 });
