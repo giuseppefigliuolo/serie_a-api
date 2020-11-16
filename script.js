@@ -1,18 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   const cursorAnimation = () => {
-    const innerCursor = document.querySelector(".inner-cursor");
-    const outerCursor = document.querySelector(".outer-cursor");
+    let mouseCursor = document.querySelector(".cursor");
 
-    const moveCursor = (evt) => {
-      const x = evt.clientX;
-      const y = evt.clientY;
-
-      innerCursor.style.left = `${x}px`;
-      innerCursor.style.top = `${y}px`;
-      outerCursor.style.left = `${x}px`;
-      outerCursor.style.top = `${y}px`;
+    const cursorMov = (evt) => {
+      mouseCursor.style.top = evt.pageY + "px";
+      mouseCursor.style.left = evt.pageX + "px";
     };
-    document.addEventListener("mousemove", moveCursor);
+    document.addEventListener("mousemove", cursorMov);
   };
 
   const liquidTransition = (img) => {
@@ -41,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const countdown = () => {
     const countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
 
-    // Update the count down every 1 second
     const x = setInterval(() => {
       const now = new Date().getTime();
 
@@ -53,8 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      // If the count down is finished, write some text
       if (distance < 0) {
         clearInterval(x);
       }
@@ -63,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000);
   };
 
-  //   cursorAnimation();
+  cursorAnimation();
   itemsHoverHandler();
   countdown();
 });

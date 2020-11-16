@@ -27,6 +27,7 @@
 
 html {
   overflow: hidden;
+  cursor: none;
 }
 
 body {
@@ -90,35 +91,15 @@ h1 {
   transition: opacity 0.4s;
 }
 
-.inner-cursor {
-  position: fixed;
-  left: 10px;
-  width: 10px;
-  height: 10px;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  mix-blend-mode: difference;
+.cursor {
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid white;
   border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
   pointer-events: none;
-  transition: width 0.5s, height 0.5s;
-}
-
-.inner-cursor.grow {
-  width: 25px;
-  height: 25px;
-  transition: width 0.5s, height 0.5s;
-}
-
-.outer-cursor {
-  position: fixed;
-  left: 10px;
-  width: 25px;
-  height: 25px;
-  transform: translate(-50%, -50%);
-  border: 1px solid #fff;
-  mix-blend-mode: difference;
-  border-radius: 50%;
-  transition: 0.1s;
+  z-index: 50;
 }
 
 .menu__item-link::before {
@@ -224,13 +205,30 @@ canvas {
   }
 }
 
-@media (min-width: 1000) {
-  body {
-    background-color: #fff;
-  }
+@media (max-width: 1200px) {
   .comingsoon {
-    background-color: red;
-    top: 6vw;
-    right: -27vw;
+    top: 6%;
+    right: -32%;
+  }
+}
+
+@media (min-width: 1450px) {
+  .comingsoon {
+    top: 5vw;
+    right: -25vw;
+  }
+}
+
+@media (min-width: 1600px) {
+  .comingsoon {
+    top: 4vw;
+    right: -23vw;
+  }
+}
+
+@media (min-width: 1700px) {
+  .comingsoon {
+    top: 3vw;
+    right: -21vw;
   }
 }
